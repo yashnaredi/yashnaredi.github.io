@@ -5,358 +5,188 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dino Park Training - Part A Setup</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&display=swap');
-
-    /* Reuse all styles from landing page, just update active nav */
-
-    /* Reset */
+    @import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
-
     body {
-      margin: 0;
-      background: linear-gradient(135deg, #354f2f 0%, #a2b379 100%);
-      font-family: 'Roboto', sans-serif;
-      color: #f1f1d0;
-      line-height: 1.6;
+      font-family: "Share Tech Mono", monospace;
+      background-color: #1a1a1a;
+      color: #c9d59f;
       min-height: 100vh;
-      padding-bottom: 60px;
-      transition: background-color 0.5s ease, color 0.5s ease;
-      position: relative;
+      display: flex;
+      flex-direction: column;
     }
-
     header {
-      background: #2d3a20;
-      padding: 1rem 1rem 1rem 2rem;
-      box-shadow: inset 0 -10px 15px rgba(0,0,0,0.4);
-      border-bottom: 5px solid #7a9a4d;
-      position: relative;
-      z-index: 10;
+      background-color: #2f3b1f;
+      padding: 1rem 2rem;
+      box-shadow: 0 0 15px #7ea800aa;
+      text-align: center;
+      border-bottom: 1px solid #5a7311;
     }
-
     header h1 {
-      font-family: 'Press Start 2P', cursive;
-      font-size: 2rem;
-      margin: 0;
-      color: #c9d59f;
-      text-shadow: 2px 2px 3px #1b2414;
-      display: inline-block;
-      vertical-align: middle;
+      font-size: 2.2rem;
+      color: #d5dd9c;
+      margin-bottom: 0.3rem;
+      text-shadow: 0 0 8px #8f9b00;
     }
-
-    /* Navigation Bar */
-    nav {
-      display: inline-block;
-      vertical-align: middle;
-      margin-left: 2rem;
-    }
-
     nav a {
-      color: #c9d59f;
-      font-weight: bold;
       text-decoration: none;
-      font-size: 0.9rem;
-      margin-right: 1.8rem;
-      padding: 0.2rem 0.5rem;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
+      color: #c9d59f;
+      margin: 0 1rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding-bottom: 0.15rem;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease;
     }
-
     nav a:hover,
-    nav a:focus {
-      background-color: #7a9a4d;
-      color: #f0f5b7;
-    }
-
     nav a[aria-current="page"] {
-      background-color: #7a9a4d;
-      color: #f0f5b7;
-      pointer-events: none;
+      border-bottom: 2px solid #8f9b00;
+      color: #a8b13c;
     }
-
     main {
+      flex-grow: 1;
       max-width: 900px;
       margin: 2rem auto;
-      background: rgba(41, 56, 28, 0.85);
-      border-radius: 12px;
-      padding: 2rem 2.5rem;
-      box-shadow: 0 0 20px #a7c17a88;
-      border: 3px solid #7a9a4d;
-      transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
-      position: relative;
-      z-index: 5;
+      padding: 0 1rem;
     }
-
-    h2, h3 {
-      color: #d3df8d;
-      font-family: 'Press Start 2P', cursive;
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
-      text-shadow: 1px 1px 1px #1b2414;
-    }
-
-    h3 {
-      font-size: 1rem;
-    }
-
-    p, li {
-      font-size: 1rem;
-      color: #e4e8c1;
-    }
-
-    ul {
-      margin-left: 1.5rem;
-      margin-bottom: 1.2rem;
-    }
-
-    ul li {
-      margin-bottom: 0.4rem;
-      position: relative;
-      padding-left: 22px;
-    }
-
-    ul li::before {
-      content: "🦖";
-      position: absolute;
-      left: 0;
-      top: 0;
-      font-size: 1.1rem;
-      line-height: 1;
-    }
-
     section {
       margin-bottom: 2rem;
+      line-height: 1.6;
     }
-
+    h2 {
+      margin-bottom: 0.8rem;
+      color: #d5dd9c;
+      text-shadow: 0 0 6px #a2b000;
+    }
+    h3 {
+      margin-bottom: 0.6rem;
+      color: #c0cd78;
+      text-shadow: 0 0 5px #869900;
+    }
+    ul {
+      list-style-type: none;
+      margin-left: 1.2rem;
+      margin-top: 0.6rem;
+    }
+    ul li::before {
+      content: "🦖";
+      margin-right: 0.6rem;
+      color: #a8b13c;
+    }
+    ul li {
+      margin-bottom: 0.4rem;
+      font-size: 1.05rem;
+    }
+    ol {
+      margin-left: 1.4rem;
+      margin-top: 0.6rem;
+    }
+    ol li {
+      margin-bottom: 0.6rem;
+      font-size: 1.05rem;
+    }
     .note-box {
-      background: #a2b379cc;
-      border-left: 6px solid #7a9a4d;
-      padding: 1rem 1.2rem;
-      margin: 1rem 0 1.5rem 0;
+      background-color: #263012;
+      border: 1px solid #7ea800aa;
+      border-radius: 6px;
+      padding: 1rem;
+      margin-top: 1rem;
       font-style: italic;
-      color: #31421e;
-      box-shadow: 0 2px 5px #234117a1;
+      color: #b8cc70;
+      box-shadow: 0 0 8px #7ea800aa;
+      max-width: 600px;
     }
-
-    a {
-      color: #c4d65a;
-      font-weight: bold;
+    footer {
+      background-color: #2f3b1f;
+      padding: 0.9rem 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #a8b13c;
+      box-shadow: 0 -1px 15px #7ea800aa;
+      user-select: none;
+    }
+    .back-link {
+      display: inline-block;
+      margin-left: 2rem;
+      margin-top: 1rem;
+      font-size: 1rem;
       text-decoration: none;
-      border-bottom: 2px dotted #c4d65a;
+      color: #c9d59f;
+      font-weight: 600;
       transition: color 0.3s ease;
     }
-
-    a:hover {
-      color: #f0f5b7;
-      border-bottom: 2px solid #f0f5b7;
+    .back-link:hover {
+      color: #a8b13c;
     }
-
-    footer {
-      text-align: center;
-      margin-top: 3rem;
-      color: #b9c998aa;
-      font-size: 0.9rem;
-      font-style: italic;
-      user-select: none;
-      position: relative;
-      z-index: 10;
-    }
-
-    @media (max-width: 600px) {
-      main {
-        padding: 1rem 1.2rem;
-      }
-      header h1 {
-        font-size: 1.5rem;
-      }
-      nav {
-        display: block;
-        margin-top: 0.5rem;
-        margin-left: 0;
-      }
-      nav a {
-        margin-right: 1rem;
-        font-size: 0.85rem;
-      }
-    }
-
-    /* --- NEON MODE STYLES with green/yellow neon --- */
-    body.neon {
-      background: linear-gradient(135deg, #0a1e0a 0%, #2a3e1a 100%);
-      color: #d0ff60;
-    }
-
-    body.neon header {
-      background: #113311;
-      border-bottom-color: #a7ff00;
-      box-shadow: 0 0 15px #a7ff00 inset;
-    }
-
-    body.neon header h1 {
-      color: #a7ff00;
-      text-shadow:
-        0 0 6px #a7ff00,
-        0 0 15px #d0ff60,
-        0 0 30px #a7ff00;
-    }
-
-    body.neon nav a {
-      color: #a7ff00;
-      border-color: #a7ff00;
-      box-shadow: 0 0 5px #a7ff00 inset;
-    }
-
-    body.neon nav a:hover,
-    body.neon nav a:focus {
-      background-color: #d0ff60;
-      color: #0a1e0a;
-      box-shadow:
-        0 0 12px #d0ff60,
-        0 0 24px #a7ff00;
-    }
-
-    body.neon nav a[aria-current="page"] {
-      background-color: #a7ff00;
-      color: #0a1e0a;
-      pointer-events: none;
-      box-shadow:
-        0 0 20px #a7ff00,
-        0 0 40px #d0ff60;
-    }
-
-    body.neon main {
-      background: rgba(22, 44, 14, 0.85);
-      border-color: #a7ff00;
-      box-shadow:
-        0 0 25px #d0ff60,
-        inset 0 0 40px #a7ff00;
-    }
-
-    body.neon h2, body.neon h3 {
-      color: #a7ff00;
-      text-shadow:
-        0 0 6px #a7ff00,
-        0 0 15px #d0ff60;
-    }
-
-    body.neon p, body.neon li {
-      color: #e4f7a9;
-    }
-
-    body.neon .note-box {
-      background: #304d06cc;
-      border-left-color: #a7ff00;
-      color: #d0ff60;
-      box-shadow: 0 2px 5px #294501a1;
-    }
-
-    body.neon a {
-      color: #d0ff60;
-      border-bottom-color: #d0ff60;
-    }
-
-    body.neon a:hover {
-      color: #a7ff00;
-      border-bottom-color: #a7ff00;
-    }
-
-    body.neon footer {
-      color: #a7ff0077;
-    }
-
-    /* Neon toggle switch container */
     .neon-toggle-container {
       position: fixed;
-      top: 50%;
-      right: 1rem;
-      transform: translateY(-50%);
-      background: rgba(41, 56, 28, 0.85);
-      border: 2px solid #7a9a4d;
-      border-radius: 25px;
-      padding: 0.3rem 0.6rem;
-      box-shadow: 0 0 10px #a7c17a88;
-      z-index: 1000;
+      bottom: 1.2rem;
+      right: 1.5rem;
+      background: #263012;
+      border: 2px solid #7ea800aa;
+      border-radius: 10px;
+      padding: 0.4rem 1rem;
+      color: #c9d59f;
+      font-weight: 700;
+      font-size: 1rem;
       user-select: none;
+      cursor: pointer;
+      box-shadow: 0 0 12px #7ea800cc;
       display: flex;
       align-items: center;
-      cursor: pointer;
-      transition: background-color 0.3s ease, border-color 0.3s ease;
+      gap: 0.5rem;
+      outline-offset: 2px;
+      outline: none;
     }
-
-    .neon-toggle-container:hover {
-      background: #7a9a4d;
-      border-color: #a7ff00;
-      box-shadow: 0 0 15px #a7ff00;
+    .neon-toggle-container:focus {
+      outline: 2px solid #a8b13c;
+      box-shadow: 0 0 15px #a8b13c;
     }
-
-    .neon-toggle-container label {
-      font-family: 'Roboto', sans-serif;
-      font-weight: bold;
-      color: #c9d59f;
-      margin-right: 0.5rem;
-      user-select: none;
-      font-size: 0.85rem;
-      text-shadow: 1px 1px 1px #1b2414;
-    }
-
-    body.neon .neon-toggle-container label {
-      color: #a7ff00;
-      text-shadow:
-        0 0 6px #a7ff00,
-        0 0 10px #d0ff60;
-    }
-
-    /* Toggle Switch */
-    .switch {
-      position: relative;
-      display: inline-block;
-      width: 44px;
-      height: 24px;
-    }
-
-    .switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      transition: 0.4s;
-      border-radius: 24px;
-    }
-
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 18px;
+    .neon-toggle-container input[type="checkbox"] {
       width: 18px;
-      left: 3px;
-      bottom: 3px;
-      background-color: white;
-      transition: 0.4s;
-      border-radius: 50%;
+      height: 18px;
+      cursor: pointer;
+      accent-color: #a8b13c;
     }
-
-    input:checked + .slider {
-      background-color: #a7ff00;
-      box-shadow: 0 0 8px #a7ff00;
+    /* Neon mode styles */
+    body.neon {
+      background-color: #0a0f00;
+      color: #c9f700;
+      text-shadow:
+        0 0 10px #b4ff00,
+        0 0 20px #a8e000,
+        0 0 30px #a8e000;
     }
-
-    input:checked + .slider:before {
-      transform: translateX(20px);
+    body.neon header {
+      background-color: #1c2900;
+      box-shadow: 0 0 25px #b4ff00cc;
+      border-color: #b4ff00cc;
+    }
+    body.neon nav a,
+    body.neon .back-link,
+    body.neon .neon-toggle-container {
+      color: #b4ff00;
+      text-shadow: 0 0 8px #b4ff00;
+    }
+    body.neon nav a:hover,
+    body.neon nav a[aria-current="page"] {
+      border-color: #eaff00;
+      color: #eaff00;
+      text-shadow: 0 0 12px #eaff00;
+    }
+    body.neon footer {
+      background-color: #1c2900;
+      box-shadow: 0 -1px 25px #b4ff00cc;
+      color: #b4ff00;
+      text-shadow: 0 0 8px #b4ff00;
     }
   </style>
 </head>
 <body>
-
 <header>
   <h1>Dino Park Training</h1>
   <nav>
@@ -365,42 +195,49 @@
     <a href="dino-part-b.html">Part B Digital Flow</a>
   </nav>
 </header>
-<a href="index.html" class="back-link" aria-label="Back to Genesys Hub" style="margin-left: 2rem; display: inline-block; margin-top: 1rem; color: #c9d59f; text-decoration: none;">&larr; Back to Genesys Hub</a>
+
+<a href="index.html" class="back-link" aria-label="Back to Genesys Hub">&larr; Back to Genesys Hub</a>
+
 <main>
   <section>
-    <h2>Part A: Setup & Configuration</h2>
-    <p>This section covers how to create and configure queues, schedules, and channels for the Dino Park multi-channel contact center.</p>
+    <h2>Part A: Dino Park Setup</h2>
+    <p>This section covers the foundational configuration tasks necessary to prepare the Dino Park environment. Here you will set up key Genesys Cloud components and define your initial interaction architecture.</p>
   </section>
 
   <section>
-    <h3>Queues</h3>
+    <h3>Setup Objectives</h3>
     <ul>
-      <li>Configure Science, Sales, and Support queues</li>
-      <li>Set priorities for queue routing</li>
-      <li>Associate queues with lines of business</li>
+      <li>Provision essential components such as Virtual Assistants, Queues, and Users</li>
+      <li>Define basic routing and escalation rules for incoming customer requests</li>
+      <li>Establish baseline monitoring and reporting dashboards</li>
+      <li>Prepare the environment for integration with digital engagement tools</li>
     </ul>
   </section>
 
   <section>
-    <h3>Schedules</h3>
+    <h3>Setup Steps</h3>
+    <ol>
+      <li>Create Virtual Assistants and train intents for common queries</li>
+      <li>Configure queues and assign agents with appropriate skills</li>
+      <li>Establish escalation rules to handoff interactions from bots to agents</li>
+      <li>Set up dashboards and analytics reports to monitor performance</li>
+      <li>Test initial voice and chat interaction flows</li>
+    </ol>
+  </section>
+
+  <section>
+    <h3>Best Practices</h3>
     <ul>
-      <li>Define business hours per queue</li>
-      <li>Configure holidays and exceptions</li>
-      <li>Link schedules to queues for routing control</li>
+      <li>Document each configuration step for team collaboration</li>
+      <li>Use naming conventions to keep assets organized and discoverable</li>
+      <li>Test early and often to identify configuration gaps</li>
+      <li>Leverage Genesys documentation and community forums for support</li>
     </ul>
   </section>
 
   <section>
-    <h3>Channels</h3>
-    <ul>
-      <li>Enable Web Messaging, Email, and Chat channels</li>
-      <li>Set channel-specific routing rules</li>
-      <li>Integrate with external systems as needed</li>
-    </ul>
-  </section>
-
-  <section class="note-box">
-    <p><strong>Note:</strong> For detailed instructions, refer to the <a href="https://genesys.com/docs" target="_blank" rel="noopener noreferrer">Genesys documentation</a>.</p>
+    <h3>Ready to Move On?</h3>
+    <p>After completing these setup tasks, you're ready to design the customer interaction flows in <strong>Part B Digital Flow</strong>. This will bring your Dino Park support experience to life!</p>
   </section>
 </main>
 
@@ -408,33 +245,29 @@
   &copy; 2025 Genesys HUB | Jurassic Training Grounds
 </footer>
 
-<!-- Neon toggle switch -->
-<div class="neon-toggle-container" aria-label="Toggle neon mode" role="switch" tabindex="0">
+<div class="neon-toggle-container" tabindex="0" role="switch" aria-checked="false" aria-label="Toggle Neon Mode">
   <label for="neon-toggle">Neon Mode</label>
-  <label class="switch">
-    <input type="checkbox" id="neon-toggle" aria-checked="false" />
-    <span class="slider"></span>
-  </label>
+  <input type="checkbox" id="neon-toggle" />
 </div>
 
 <script>
   const toggle = document.getElementById('neon-toggle');
   const neonContainer = document.querySelector('.neon-toggle-container');
 
-  if (localStorage.getItem('neonMode') === 'true') {
-    document.body.classList.add('neon');
+  if(localStorage.getItem('neonMode') === 'true') {
     toggle.checked = true;
-    toggle.setAttribute('aria-checked', 'true');
+    document.body.classList.add('neon');
+    neonContainer.setAttribute('aria-checked', 'true');
   }
 
   toggle.addEventListener('change', () => {
     if (toggle.checked) {
       document.body.classList.add('neon');
-      toggle.setAttribute('aria-checked', 'true');
+      neonContainer.setAttribute('aria-checked', 'true');
       localStorage.setItem('neonMode', 'true');
     } else {
       document.body.classList.remove('neon');
-      toggle.setAttribute('aria-checked', 'false');
+      neonContainer.setAttribute('aria-checked', 'false');
       localStorage.setItem('neonMode', 'false');
     }
   });
@@ -447,6 +280,5 @@
     }
   });
 </script>
-
 </body>
 </html>
