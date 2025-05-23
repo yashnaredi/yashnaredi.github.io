@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Email – Exercise 2</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f9;
+      color: #333;
+    }
+
+    header {
+      background: #FF4F1F;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #FF4F1F;
+      margin-top: 30px;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .back-link a {
+      color: #00AE9E;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Email – Exercise 2</h1>
+    <p>Inbound Email Flow with Auto-Reply Using Genesys Cloud Default Domain</p>
+  </header>
+
+  <main>
+    <h2>Objective</h2>
+    <p>Create an inbound email Architect flow that includes an automatic reply to customers while routing emails to a queue.</p>
+
+    <h2>Steps</h2>
+    <ol>
+      <li><strong>Set Up Email Address</strong>
+        <ul>
+          <li>Use the existing or create a new email address in <code>Contact Center &gt; Email</code> with the <code>@mypurecloud.com</code> domain</li>
+          <li>Configure routing to use an Architect flow instead of direct queue routing</li>
+        </ul>
+      </li>
+
+      <li><strong>Create Architect Inbound Email Flow</strong>
+        <ul>
+          <li>Navigate to Architect and create a new inbound email flow</li>
+          <li>Add a <em>Send Email</em> action to send an automatic acknowledgment or auto-reply to the customer</li>
+          <li>Customize the auto-reply message to confirm receipt and expected response time</li>
+          <li>Route the email to the appropriate queue for agent handling</li>
+          <li>Optionally add conditions, such as keywords or time-based routing</li>
+          <li>Save and publish the flow</li>
+        </ul>
+      </li>
+
+      <li><strong>Assign Flow to Email</strong>
+        <ul>
+          <li>Return to the email address configuration</li>
+          <li>Set routing to the newly created Architect inbound email flow</li>
+          <li>Save changes</li>
+        </ul>
+      </li>
+
+      <li><strong>Test the Setup</strong>
+        <ul>
+          <li>Send test emails to the configured address</li>
+          <li>Verify that an auto-reply email is received</li>
+          <li>Confirm email routes to the assigned queue and agents receive notifications</li>
+        </ul>
+      </li>
+    </ol>
+
+    <div class="back-link">
+      <a href="exercises.html">&larr; Back to Exercises</a>
+    </div>
+  </main>
+
+  <div class="footer">
+    &copy; 2025 Genesys-HUB. Built for the Genesys Hackathon.
+  </div>
+
+</body>
+</html>

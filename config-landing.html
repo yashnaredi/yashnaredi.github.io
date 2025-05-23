@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GenesysHUB – Guides</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f9;
+      color: #333;
+    }
+
+    header {
+      background: #FF4F1F;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2em;
+    }
+
+    header p {
+      font-size: 1.1em;
+      margin-top: 10px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #FF4F1F;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #00AE9E;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .card a:hover {
+      background-color: #008b7e;
+    }
+
+    .back-button {
+      display: block;
+      text-align: center;
+      margin: 40px auto 20px;
+    }
+
+    .back-button a {
+      color: #00AE9E;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1em;
+    }
+
+    .back-button a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Genesys-HUB – Implementation Guides</h1>
+    <p>Step-by-step configuration guides for Messenger, Copilot, Email Routing, and Predictive Engagement (GPE).</p>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h3>Configure Messenger</h3>
+      <p>How to configure Messenger Deployment and Widget</p>
+      <a href="config-messegner.html" target="_blank">Open Guide</a>
+    </div>
+    <div class="card">
+      <h3>Configure Copilot</h3>
+      <p>How to set up Copilot and connect with Knowledge Base</p>
+      <a href="config-copilot.html" target="_blank">Open Guide</a>
+    </div>
+    <div class="card">
+      <h3>Configure Email Routing</h3>
+      <p>Guide to email domain setup, flows, queues, and more</p>
+      <a href="config-emailrouting.html" target="_blank">Open Guide</a>
+    </div>
+    <div class="card">
+      <h3>Configure GPE</h3>
+      <p>Steps to set up Predictive Engagement, segments, and actions</p>
+      <a href="config-gpe.html" target="_blank">Open Guide</a>
+    </div>
+  </div>
+
+  <div class="back-button">
+    <a href="index.html">&larr; Back to Home</a>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 Genesys-HUB. Built for the Genesys Hackathon.
+  </div>
+
+</body>
+</html>

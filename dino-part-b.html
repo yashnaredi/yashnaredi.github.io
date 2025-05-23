@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dino Park Training - Part B Digital Flow</title>
+  <style>
+    /* Same styles as above for consistency */
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #354f2f 0%, #a2b379 100%);
+      font-family: 'Roboto', sans-serif;
+      color: #f1f1d0;
+      line-height: 1.6;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    header {
+      background: #2d3a20;
+      padding: 1rem 1rem 1rem 2rem;
+      box-shadow: inset 0 -10px 15px rgba(0,0,0,0.4);
+      border-bottom: 5px solid #7a9a4d;
+      position: relative;
+    }
+
+    header h1 {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 2rem;
+      margin: 0;
+      color: #c9d59f;
+      text-shadow: 2px 2px 3px #1b2414;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    nav {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 2rem;
+    }
+
+    nav a {
+      color: #c9d59f;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-right: 1.8rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background-color: #7a9a4d;
+      color: #f0f5b7;
+    }
+
+    nav a[aria-current="page"] {
+      background-color: #7a9a4d;
+      color: #f0f5b7;
+      pointer-events: none;
+      cursor: default;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: rgba(41, 56, 28, 0.85);
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      box-shadow: 0 0 20px #a7c17a88;
+      border: 3px solid #7a9a4d;
+    }
+
+    h2, h3 {
+      color: #d3df8d;
+      font-family: 'Press Start 2P', cursive;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 1px 1px 1px #1b2414;
+    }
+
+    h3 {
+      font-size: 1rem;
+    }
+
+    p, li {
+      font-size: 1rem;
+      color: #e4e8c1;
+    }
+
+    ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    ul li {
+      margin-bottom: 0.4rem;
+      position: relative;
+      padding-left: 22px;
+    }
+
+    ul li::before {
+      content: "🦖";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    .note-box {
+      background: #a2b379cc;
+      border-left: 6px solid #7a9a4d;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0 1.5rem 0;
+      font-style: italic;
+      color: #31421e;
+      box-shadow: 0 2px 5px #234117a1;
+    }
+
+    a {
+      color: #c4d65a;
+      font-weight: bold;
+      text-decoration: none;
+      border-bottom: 2px dotted #c4d65a;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #f0f5b7;
+      border-bottom: 2px solid #f0f5b7;
+    }
+
+    /* Back Button */
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #c9d59f;
+      font-weight: bold;
+      text-decoration: none;
+      border: 2px solid #7a9a4d;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-link:hover {
+      background-color: #7a9a4d;
+      color: #f0f5b7;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      color: #b9c998aa;
+      font-size: 0.9rem;
+      font-style: italic;
+      user-select: none;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 1rem 1.2rem;
+      }
+      header h1 {
+        font-size: 1.5rem;
+      }
+      nav {
+        display: block;
+        margin-top: 0.5rem;
+        margin-left: 0;
+      }
+      nav a {
+        margin-right: 1rem;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Dino Park Training</h1>
+  <nav>
+    <a href="dino-park.html">Home</a>
+    <a href="dino-part-a.html">Part A Setup</a>
+    <a href="dino-part-b.html" aria-current="page">Part B Digital Flow</a>
+  </nav>
+</header>
+
+<main>
+  <a href="dino-park.html" class="back-link" aria-label="Back to Dino Park Home">&larr; Back to Home</a>
+  <a href="index.html" class="back-link" aria-label="Back to Genesys Hub">&larr; Back to Genesys Hub</a>
+
+  <section>
+    <h2>Part B: Digital Interaction Flow</h2>
+    <p>This section focuses on building the digital flows that integrate the VA, Knowledge Base, Copilot AI, and Predictive Engagement capabilities to provide seamless customer interaction.</p>
+
+    <h3>Key Tasks</h3>
+    <ul>
+      <li>Configure and test Virtual Agent (VA) flows for each line of business.</li>
+      <li>Integrate Knowledge Base for quick and accurate answers.</li>
+      <li>Use Copilot AI to assist agents and automate responses.</li>
+      <li>Implement Predictive Engagement to proactively interact with customers.</li>
+    </ul>
+
+    <h3>Considerations</h3>
+    <ul>
+      <li>Ensure proper routing logic based on customer input and queue availability.</li>
+      <li>Test fallback mechanisms if VA or Copilot cannot resolve queries.</li>
+      <li>Monitor analytics for engagement success rates.</li>
+    </ul>
+
+    <div class="note-box">
+      <strong>Tip:</strong> Use the Genesys Flow Builder to visually design and test your flows with the Dino Park context in mind.
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Genesys HUB | Jurassic Training Grounds
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Web Messenger – Exercise 1</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f9;
+      color: #333;
+    }
+
+    header {
+      background: #FF4F1F;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #FF4F1F;
+      margin-top: 30px;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .back-link a {
+      color: #00AE9E;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Web Messenger – Exercise 1</h1>
+    <p>Create a Simple Web Messenger Configuration in Genesys Cloud</p>
+  </header>
+
+  <main>
+    <h2>Objective</h2>
+    <p>Set up a basic web messenger deployment with direct agent routing using Architect.</p>
+
+    <h2>Steps</h2>
+    <ol>
+      <li><strong>Configure the Messenger</strong>
+        <ul>
+          <li>Go to <strong>Admin > Messenger Configuration</strong></li>
+          <li>Create a new configuration or edit an existing one</li>
+          <li>Set appearance: colors, logo, language, and avatar</li>
+          <li>Enable <strong>Auto-Start</strong> to launch the messenger automatically</li>
+        </ul>
+      </li>
+
+      <li><strong>Create a Simple Queue</strong>
+        <ul>
+          <li>Go to <strong>Admin > Queues</strong></li>
+          <li>Create a new queue with a recognizable name like <code>SimpleWebChatQueue</code></li>
+          <li>Assign agents or yourself for testing</li>
+        </ul>
+      </li>
+
+      <li><strong>Set Up Deployment</strong>
+        <ul>
+          <li>Go to <strong>Messenger Deployment</strong></li>
+          <li>Select the Messenger config and assign the queue via an Architect flow</li>
+          <li>Whitelist your website domain</li>
+          <li>Copy and embed the script tag into your website</li>
+        </ul>
+      </li>
+
+      <li><strong>Create an Architect Flow</strong>
+        <ul>
+          <li>Go to <strong>Architect > Digital Bot Flows</strong></li>
+          <li>Create a new Inbound Message Flow</li>
+          <li>Add a <strong>Transfer to ACD</strong> action and route it to <code>SimpleWebChatQueue</code></li>
+          <li>Publish the flow and connect it to the deployment</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h2>Test It Out</h2>
+    <ul>
+      <li>Open the website where you installed the widget</li>
+      <li>Initiate a chat and verify it routes directly to the assigned queue</li>
+      <li>Make sure an agent can accept and respond to the message</li>
+    </ul>
+
+    <div class="back-link">
+      <a href="web-messenger-exercises.html">&larr; Back to Exercises</a>
+    </div>
+  </main>
+
+  <div class="footer">
+    &copy; 2025 Genesys-HUB. Built for the Genesys Hackathon.
+  </div>
+
+</body>
+</html>

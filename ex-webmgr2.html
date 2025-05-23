@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Web Messenger – Exercise 2</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f9;
+      color: #333;
+    }
+
+    header {
+      background: #FF4F1F;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #FF4F1F;
+      margin-top: 30px;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .back-link a {
+      color: #00AE9E;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Web Messenger – Exercise 2</h1>
+    <p>Make the Architect Flow More Advanced with Scheduling and Queue Messaging</p>
+  </header>
+
+  <main>
+    <h2>Objective</h2>
+    <p>Create an Architect flow that checks business hours, provides queue position updates, and disconnects when out of schedule or on timeout.</p>
+
+    <h2>Steps</h2>
+    <ol>
+      <li><strong>Add Schedule Check in Architect Flow</strong>
+        <ul>
+          <li>In Architect, add a <strong>Check Schedule</strong> action</li>
+          <li>Select business hours 9 AM to 5 PM, Monday to Friday</li>
+          <li>If outside schedule, use <strong>Disconnect</strong> action with a polite message</li>
+        </ul>
+      </li>
+
+      <li><strong>Configure Escalation Only Within Schedule</strong>
+        <ul>
+          <li>If within schedule, proceed to <strong>Transfer to ACD</strong> action</li>
+          <li>Route to your predefined queue (e.g., <code>SimpleWebChatQueue</code>)</li>
+        </ul>
+      </li>
+
+      <li><strong>In-Queue Flow for Updates</strong>
+        <ul>
+          <li>Create an <strong>In-Queue Flow</strong> for the queue</li>
+          <li>Add <strong>Play Audio/Message</strong> actions to announce user's position every 30 seconds</li>
+          <li>Set timeout to 10 minutes (600 seconds)</li>
+          <li>After timeout, disconnect the conversation with a message indicating timeout</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h2>Test It Out</h2>
+    <ul>
+      <li>Test during business hours (9-5) and confirm chat routes to agents</li>
+      <li>Try outside business hours and verify disconnect message appears</li>
+      <li>Queue position announcements every 30 seconds when waiting</li>
+      <li>Timeout disconnect after 10 minutes if no agent accepts</li>
+    </ul>
+
+    <div class="back-link">
+      <a href="web-messenger-exercises.html">&larr; Back to Exercises</a>
+    </div>
+  </main>
+
+  <div class="footer">
+    &copy; 2025 Genesys-HUB. Built for the Genesys Hackathon.
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How to Set Up Email Routing</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f9;
+      color: #333;
+    }
+
+    header {
+      background: #FF4F1F;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #FF4F1F;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9em;
+      color: #777;
+    }
+
+    a.back-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: #00AE9E;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a.back-link:hover {
+      text-decoration: underline;
+    }
+
+    a {
+      color: #00AE9E;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>How to Set Up Email Routing in Genesys Cloud</h1>
+  </header>
+
+  <main>
+    <h2>Overview</h2>
+    <p>This guide walks you through setting up an email channel in Genesys Cloud for routing incoming messages to specific queues or flows. You can use Genesys-provided domains or configure a custom domain with your SMTP/Graph API setup.</p>
+
+    <h2>Step 1: Access Email Configuration</h2>
+    <p>Go to <strong>Contact Center &gt; Email</strong> in the Genesys Cloud admin interface.</p>
+
+    <h2>Step 2: Choose or Set Up Your Domain</h2>
+    <ul>
+      <li><strong>Option 1: Use Genesys Cloud (mypurecloud.io)</strong> — Quick and easy for testing or small teams.</li>
+      <li><strong>Option 2: Use a Custom Domain</strong>
+        <ul>
+          <li>You’ll need to verify domain ownership via DNS or email validation.</li>
+          <li>Choose either:
+            <ul>
+              <li><strong>SMTP</strong> — Connects to your mail server.</li>
+              <li><strong>Microsoft Graph API</strong> — Recommended for Outlook/Exchange environments.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>Step 3: Configure Email Address</h2>
+    <p>Once the domain is active, set up your routing address:</p>
+    <ul>
+      <li><strong>From Name:</strong> The display name seen by users</li>
+      <li><strong>Email Address:</strong> The address that will receive routed messages</li>
+      <li><strong>Reply To:</strong> Optional override for reply address</li>
+    </ul>
+
+    <h2>Step 4: Set Routing Rules</h2>
+    <ul>
+      <li><strong>Always route to this flow or queue:</strong> Enable this option</li>
+      <li><strong>Select a Flow or Queue:</strong> Choose one you’ve prebuilt for email handling</li>
+      <li><strong>Optional Routing Enhancements:</strong>
+        <ul>
+          <li>Assign <strong>Skills</strong> to route based on agent expertise</li>
+          <li>Select preferred <strong>Language</strong> for agent matching</li>
+          <li>Set <strong>Priority</strong> to define email importance level</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>Step 5: Enable Additional Options</h2>
+    <ul>
+      <li><strong>Email Signature:</strong> Toggle on if you want to append a signature to replies</li>
+    </ul>
+
+    <h2>Step 6: Testing</h2>
+    <ul>
+      <li>Send a test email to the configured address</li>
+      <li>Verify that it reaches the correct queue and appears in the agent interface</li>
+      <li>Confirm the signature, routing, and reply behavior all function as expected</li>
+    </ul>
+
+    <a href="config-landing.html" class="back-link">&larr; Back to Guides</a>
+  </main>
+
+  <div class="footer">
+    &copy; 2025 Genesys-HUB. Built for the Genesys Hackathon.
+  </div>
+
+</body>
+</html>

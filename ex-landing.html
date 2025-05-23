@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Genesys HUB - Exercises Landing</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0; padding: 0;
+      background: #f4f6f9;
+      color: #333;
+    }
+    header {
+      background: #FF4F1F;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 0 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #FF4F1F;
+    }
+    .card p {
+      margin: 15px 0 0 0;
+      font-size: 1em;
+      color: #555;
+    }
+    .card a {
+      display: inline-block;
+      margin-top: 15px;
+      color: #00AE9E;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1em;
+    }
+    .footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9em;
+      color: #777;
+    }
+
+    .back-button {
+      display: block;
+      text-align: center;
+      margin: 40px auto 20px;
+    }
+
+    .back-button a {
+      color: #00AE9E;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1em;
+    }
+
+    .back-button a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>GENESYS HUB - Exercises</h1>
+    <p>Choose your area of focus to start hands-on learning and build your skills</p>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h3>Web Messenger</h3>
+      <p>Hands-on exercises to configure and optimize the Genesys Web Messenger experience.</p>
+      <a href="web-messenger-exercises.html">Explore Web Messenger</a>
+    </div>
+    <div class="card">
+      <h3>Email</h3>
+      <p>Step-by-step email routing exercises from basics to advanced Architect flows.</p>
+      <a href="email-exercises.html">Explore Email</a>
+    </div>
+    <div class="card">
+      <h3>Dino Park</h3>
+      <p>A fun, interactive Genesys-themed Dino Park experience for team collaboration and learning.</p>
+      <a href="dino-park.html">Visit Dino Park</a>
+    </div>
+  </div>
+
+  <div class="back-button">
+    <a href="index.html">&larr; Back to Home</a>
+  </div>
+
+
+  <div class="footer">
+    &copy; 2025 Genesys-HUB. Built for the Genesys Hackathon.
+  </div>
+
+</body>
+</html>

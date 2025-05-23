@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Messenger Exercises</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0; padding: 0;
+      background: #f4f6f9;
+      color: #333;
+    }
+    header {
+      background: #FF4F1F;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 25px;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #FF4F1F;
+    }
+    .card ul {
+      padding-left: 20px;
+      color: #555;
+    }
+    .card a {
+      display: inline-block;
+      margin-top: 15px;
+      color: #00AE9E;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1em;
+    }
+    .footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9em;
+      color: #777;
+    }
+    .back-link {
+      max-width: 1100px;
+      margin: 20px auto;
+      text-align: center;
+    }
+    .back-link a {
+      color: #00AE9E;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1em;
+    }
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Web Messenger Exercises</h1>
+    <p>Step-by-step exercises to master the Genesys Web Messenger configuration and Architect flows.</p>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h3>Exercise 1: Simple Web Messenger Config</h3>
+      <ul>
+        <li>Configure the Messenger widget</li>
+        <li>Set up a simple queue</li>
+        <li>Configure Web Messenger to auto start</li>
+        <li>Set Architect flow to send directly to agent</li>
+      </ul>
+      <a href="ex-webmgr1.html">Start Exercise 1</a>
+    </div>
+    <div class="card">
+      <h3>Exercise 2: Advanced Architect Flow</h3>
+      <ul>
+        <li>Add schedule check in Architect flow</li>
+        <li>Escalate to agent only during 9-5 schedule</li>
+        <li>Disconnect outside schedule</li>
+        <li>In-queue flow with position updates every 30s</li>
+        <li>Timeout at 10 mins and disconnect if no agent accepted</li>
+      </ul>
+      <a href="ex-webmgr2.html">Start Exercise 2</a>
+    </div>
+    <div class="card">
+      <h3>Exercise 3: Multi-Queue and Skills Routing</h3>
+      <ul>
+        <li>Set up 3 queues and 3 skills</li>
+        <li>Use data table lookup for routing</li>
+        <li>Route based on Business Unit (BU) value</li>
+      </ul>
+      <a href="ex-webmgr3.html">Start Exercise 3</a>
+    </div>
+    <div class="card">
+      <h3>Exercise 4: Add Digital Bot Flow & Copilot</h3>
+      <ul>
+        <li>Add digital bot flow to inbound message flow</li>
+        <li>Use data table for routing</li>
+        <li>Set up Copilot for queues</li>
+        <li>Include 10+ articles in data table</li>
+      </ul>
+      <a href="ex-webmgr4.html">Start Exercise 4</a>
+    </div>
+  </div>
+
+  <div class="back-link">
+    <a href="ex-landing.html">&larr; Back to Exercises Landing</a>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 Genesys-HUB. Built for the Genesys Hackathon.
+  </div>
+
+</body>
+</html>

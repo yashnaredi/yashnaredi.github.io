@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How to Set Up Copilot</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f9;
+      color: #333;
+    }
+
+    header {
+      background: #FF4F1F;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #FF4F1F;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9em;
+      color: #777;
+    }
+
+    a.back-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: #00AE9E;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a.back-link:hover {
+      text-decoration: underline;
+    }
+
+    a {
+      color: #00AE9E;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>How to Set Up Copilot</h1>
+  </header>
+
+  <main>
+    <h2>Prerequisites</h2>
+    <ul>
+      <li>Ensure correct org permissions are in place – <a href="https://help.mypurecloud.com/articles/permissions-and-roles-for-genesys-agent-copilot/" target="_blank">Permissions Guide</a></li>
+      <li>Enable AI Tokens – <a href="https://help.mypurecloud.com/articles/genesys-cloud-tokens-based-pricing-model/" target="_blank">AI Tokens Info</a></li>
+    </ul>
+
+    <h2>Setup Instructions</h2>
+    <p>Navigate to <strong>Contact Center &gt; Agent Copilot</strong> and follow these steps:</p>
+    <ol>
+      <li><strong>Set up Knowledge Base</strong>
+        <ul>
+          <li>Add relevant articles</li>
+          <li>Save your knowledge base</li>
+        </ul>
+      </li>
+      <li><strong>Set up Copilot</strong>
+        <ul>
+          <li>Use the Knowledge Base from Step 1</li>
+          <li>Toggle <em>Answer Generation</em> and <em>Answer Highlights</em> as needed</li>
+          <li>Configure NLU and knowledge thresholds</li>
+        </ul>
+      </li>
+      <li><strong>Assign Copilot to Queue</strong>
+        <ul>
+          <li>Use an existing queue or create a new one</li>
+          <li>Update agent assignments for the queue</li>
+          <li>Assign Copilot to yourself and team members</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h2>Testing</h2>
+    <ul>
+      <li>Go on-queue and accept an incoming conversation</li>
+      <li>Use the Lightbulb (solid fill), Picture, or Picture-and-Talk icon to interact</li>
+      <li>Copilot will provide suggested answers based on your configuration</li>
+    </ul>
+
+    <a href="config-landing.html" class="back-link">&larr; Back to Guides</a>
+  </main>
+
+  <div class="footer">
+    &copy; 2025 Genesys-HUB. Built for the Genesys Hackathon.
+  </div>
+
+</body>
+</html>

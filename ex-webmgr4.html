@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Web Messenger – Exercise 4</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f9;
+      color: #333;
+    }
+
+    header {
+      background: #FF4F1F;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #FF4F1F;
+      margin-top: 30px;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .back-link a {
+      color: #00AE9E;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Web Messenger – Exercise 4</h1>
+    <p>Add Digital Bot Flow & Configure Copilot with Data Table Lookup</p>
+  </header>
+
+  <main>
+    <h2>Objective</h2>
+    <p>Enhance your Architect flow by integrating Digital Bot for inbound messages, use data tables for routing, and configure Copilot with relevant articles.</p>
+
+    <h2>Steps</h2>
+    <ol>
+      <li><strong>Integrate Digital Bot Flow</strong>
+        <ul>
+          <li>Create or import a Digital Bot Flow for handling common chat inquiries</li>
+          <li>In your Architect inbound chat flow, add a step to invoke the Digital Bot flow</li>
+          <li>Use a <strong>Data Table Lookup</strong> to route chats based on business unit as in previous exercise</li>
+        </ul>
+      </li>
+
+      <li><strong>Set Up Data Table for Routing & Articles</strong>
+        <ul>
+          <li>Expand your existing data table to include at least 10 relevant article references for Copilot</li>
+          <li>Articles should cover FAQs, troubleshooting, and common workflows</li>
+          <li>Include columns for BU, Article Titles, Article Links, and Keywords</li>
+        </ul>
+      </li>
+
+      <li><strong>Configure Copilot for Queues</strong>
+        <ul>
+          <li>Assign Copilot to each queue in Genesys Cloud</li>
+          <li>Link Copilot with your Knowledge Base containing the 10+ articles</li>
+          <li>Enable Answer Generation and Highlights features</li>
+          <li>Test Copilot response quality on different chat scenarios</li>
+        </ul>
+      </li>
+
+      <li><strong>Test & Validate</strong>
+        <ul>
+          <li>Start inbound chats on the web messenger</li>
+          <li>Verify Digital Bot handles initial queries correctly</li>
+          <li>Confirm routing to appropriate queues via data table lookup</li>
+          <li>Check Copilot delivers helpful suggestions and article links</li>
+        </ul>
+      </li>
+    </ol>
+
+    <div class="back-link">
+      <a href="web-messenger-exercises.html">&larr; Back to Exercises</a>
+    </div>
+  </main>
+
+  <div class="footer">
+    &copy; 2025 Genesys-HUB. Built for the Genesys Hackathon.
+  </div>
+
+</body>
+</html>

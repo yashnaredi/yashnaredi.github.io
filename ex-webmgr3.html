@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Web Messenger – Exercise 3</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f9;
+      color: #333;
+    }
+
+    header {
+      background: #FF4F1F;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #FF4F1F;
+      margin-top: 30px;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .back-link a {
+      color: #00AE9E;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Web Messenger – Exercise 3</h1>
+    <p>Route Chats Dynamically Using Data Table Lookup and Multiple Queues</p>
+  </header>
+
+  <main>
+    <h2>Objective</h2>
+    <p>Set up a routing mechanism in Architect to use data table lookups and route to different queues based on business unit.</p>
+
+    <h2>Steps</h2>
+    <ol>
+      <li><strong>Create Queues and Skills</strong>
+        <ul>
+          <li>Create 3 different queues (e.g., <code>Queue-Artic</code>, <code>Queue-Beta</code>, <code>Queue-Delta</code>)</li>
+          <li>Assign 3 corresponding skills to agents for each queue</li>
+        </ul>
+      </li>
+
+      <li><strong>Set Up Data Table</strong>
+        <ul>
+          <li>Create a data table with columns:</li>
+          <ul>
+            <li><code>BU</code> (Business Unit key)</li>
+            <li>Queue Name</li>
+            <li>Skill</li>
+          </ul>
+          <li>Example data rows:</li>
+          <ul>
+            <li>BU: Artic → Queue: Queue-Artic, Skill: Skill-Artic</li>
+            <li>BU: Beta → Queue: Queue-Beta, Skill: Skill-Beta</li>
+            <li>BU: Delta → Queue: Queue-Delta, Skill: Skill-Delta</li>
+          </ul>
+        </ul>
+      </li>
+
+      <li><strong>Architect Flow Setup</strong>
+        <ul>
+          <li>Use a <strong>Data Table Lookup</strong> action, querying the BU key from interaction variables</li>
+          <li>Extract the corresponding Queue and Skill from the data table</li>
+          <li>Use <strong>Transfer to ACD</strong> action to route the chat to the selected Queue</li>
+          <li>Assign the Skill if necessary (via Skill-based routing)</li>
+        </ul>
+      </li>
+
+      <li><strong>Test</strong>
+        <ul>
+          <li>Simulate chat with different BU values</li>
+          <li>Confirm chats route to the correct queue and skill assigned agents</li>
+        </ul>
+      </li>
+    </ol>
+
+    <div class="back-link">
+      <a href="web-messenger-exercises.html">&larr; Back to Exercises</a>
+    </div>
+  </main>
+
+  <div class="footer">
+    &copy; 2025 Genesys-HUB. Built for the Genesys Hackathon.
+  </div>
+
+</body>
+</html>

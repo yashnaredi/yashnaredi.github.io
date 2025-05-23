@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Email – Exercise 3</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f9;
+      color: #333;
+    }
+
+    header {
+      background: #FF4F1F;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #FF4F1F;
+      margin-top: 30px;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .back-link a {
+      color: #00AE9E;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Email – Exercise 3</h1>
+    <p>Advanced Email Routing Using Architect with Skills and Data Table Lookup</p>
+  </header>
+
+  <main>
+    <h2>Objective</h2>
+    <p>Build an Architect inbound email flow that dynamically routes emails to different queues based on business unit (BU) lookup from a data table, leveraging skills and multiple queues.</p>
+
+    <h2>Setup Overview</h2>
+    <ul>
+      <li>3 Queues: e.g. <em>Sales Queue</em>, <em>Support Queue</em>, <em>Billing Queue</em></li>
+      <li>3 Skills: matching each queue’s specialty</li>
+      <li>Data Table with keys for <code>BU</code> and corresponding queue and skill mapping</li>
+    </ul>
+
+    <h2>Steps</h2>
+    <ol>
+      <li><strong>Create Queues and Skills</strong>
+        <ul>
+          <li>Create 3 separate queues in Genesys Cloud</li>
+          <li>Create matching skills (e.g., Sales, Support, Billing)</li>
+          <li>Assign the skills to the queues appropriately</li>
+        </ul>
+      </li>
+
+      <li><strong>Set Up Data Table</strong>
+        <ul>
+          <li>Create a Data Table with columns: <code>BU</code>, <code>QueueId</code>, <code>SkillId</code></li>
+          <li>Fill in rows with business unit values and matching queue and skill IDs</li>
+          <li>Example:</li>
+          <pre>
+| BU     | QueueId         | SkillId       |
+|--------|-----------------|---------------|
+| Artic  | salesQueueId    | salesSkillId  |
+| Retail | supportQueueId  | supportSkillId|
+| Billing| billingQueueId  | billingSkillId|
+          </pre>
+        </ul>
+      </li>
+
+      <li><strong>Architect Flow Creation</strong>
+        <ul>
+          <li>Create a new inbound email flow in Architect</li>
+          <li>Use a <em>Data Table Lookup</em> action with the incoming email’s <code>BU</code> (extracted via Email Content or Metadata)</li>
+          <li>Retrieve matching <code>QueueId</code> and <code>SkillId</code> from the Data Table</li>
+          <li>Use <em>Route to Queue</em> action, dynamically selecting the <code>QueueId</code> from the lookup result</li>
+          <li>Optionally apply <em>Skills</em> for routing</li>
+          <li>Include fallback logic to route to a default queue if no match found</li>
+          <li>Save and publish the flow</li>
+        </ul>
+      </li>
+
+      <li><strong>Assign Flow to Email</strong>
+        <ul>
+          <li>Configure your email address to route using this Architect flow</li>
+          <li>Save the configuration</li>
+        </ul>
+      </li>
+
+      <li><strong>Testing</strong>
+        <ul>
+          <li>Send test emails with different BU values in content or headers</li>
+          <li>Verify routing to the correct queues based on BU</li>
+          <li>Confirm skill-based routing and queue handling in Genesys Cloud</li>
+        </ul>
+      </li>
+    </ol>
+
+    <div class="back-link">
+      <a href="exercises.html">&larr; Back to Exercises</a>
+    </div>
+  </main>
+
+  <div class="footer">
+    &copy; 2025 Genesys-HUB. Built for the Genesys Hackathon.
+  </div>
+
+</body>
+</html>
