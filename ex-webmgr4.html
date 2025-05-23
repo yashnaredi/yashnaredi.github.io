@@ -64,6 +64,73 @@
       font-size: 0.9em;
       color: #777;
     }
+
+    /* Neon theme styles */
+    body.neon-theme {
+      background: #0f0f13;
+      color: #ff6f3c;
+    }
+    body.neon-theme header {
+      background: #1a1a1f;
+      color: #ff6f3c;
+      box-shadow: 0 0 15px #ff6f3c;
+    }
+    body.neon-theme header h1, body.neon-theme header p {
+      text-shadow:
+        0 0 5px #ff6f3c,
+        0 0 10px #ff6f3c,
+        0 0 20px #ff6f3c;
+    }
+    body.neon-theme main {
+      background: #121217;
+      box-shadow: 0 0 20px #3ce0d0;
+      border-radius: 8px;
+    }
+    body.neon-theme h2 {
+      color: #ff6f3c;
+    }
+    body.neon-theme a {
+      color: #3ce0d0;
+      text-shadow: 0 0 5px #3ce0d0;
+    }
+    body.neon-theme a:hover {
+      color: #ff6f3c;
+      text-shadow: 0 0 10px #ff6f3c;
+    }
+    body.neon-theme .back-link a {
+      color: #3ce0d0;
+      text-shadow: 0 0 8px #3ce0d0;
+    }
+    body.neon-theme .footer {
+      color: #555;
+      text-shadow: 0 0 10px #3ce0d0;
+      background: #121217;
+      box-shadow: 0 0 20px #3ce0d0;
+    }
+
+    /* Neon toggle button */
+    #themeToggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #1a1a1f;
+      border: 2px solid #ff6f3c;
+      color: #ff6f3c;
+      padding: 10px 20px;
+      font-weight: bold;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      cursor: pointer;
+      border-radius: 30px;
+      box-shadow: 0 0 10px #ff6f3c, inset 0 0 8px #ff6f3c;
+      transition: background 0.3s ease, color 0.3s ease;
+      z-index: 9999;
+      user-select: none;
+    }
+    #themeToggle:hover {
+      background: #ff6f3c;
+      color: #1a1a1f;
+      box-shadow: 0 0 20px #ff6f3c, inset 0 0 15px #ff6f3c;
+    }
   </style>
 </head>
 <body>
@@ -72,6 +139,8 @@
     <h1>Web Messenger – Exercise 4</h1>
     <p>Add Digital Bot Flow & Configure Copilot with Data Table Lookup</p>
   </header>
+
+  <button id="themeToggle" aria-label="Toggle Neon Theme">Enable Neon Theme</button>
 
   <main>
     <h2>Objective</h2>
@@ -122,6 +191,14 @@
   <div class="footer">
     &copy; 2025 Genesys-HUB. Built for the Genesys Hackathon.
   </div>
+
+  <script>
+    const toggleBtn = document.getElementById('themeToggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('neon-theme');
+      toggleBtn.textContent = document.body.classList.contains('neon-theme') ? 'Disable Neon Theme' : 'Enable Neon Theme';
+    });
+  </script>
 
 </body>
 </html>

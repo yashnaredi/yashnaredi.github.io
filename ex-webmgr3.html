@@ -5,26 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Web Messenger – Exercise 3</title>
   <style>
+    /* Base light theme */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       background: #f4f6f9;
       color: #333;
+      transition: background 0.3s ease, color 0.3s ease;
     }
-
     header {
       background: #FF4F1F;
       color: white;
       padding: 30px 20px;
       text-align: center;
+      transition: background 0.3s ease, color 0.3s ease;
     }
-
     header h1 {
       margin: 0;
       font-size: 2em;
     }
-
     main {
       max-width: 800px;
       margin: 40px auto;
@@ -32,37 +31,115 @@
       padding: 30px;
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
     }
-
     h2 {
       color: #FF4F1F;
       margin-top: 30px;
+      transition: color 0.3s ease;
     }
-
     ul, ol {
       padding-left: 20px;
     }
-
     .back-link {
       text-align: center;
       margin-top: 40px;
     }
-
     .back-link a {
       color: #00AE9E;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s ease;
     }
-
     .back-link a:hover {
       text-decoration: underline;
     }
-
     .footer {
       text-align: center;
       padding: 30px;
       font-size: 0.9em;
       color: #777;
+      transition: color 0.3s ease;
+    }
+
+    /* Neon dark theme */
+    body.neon-theme {
+      background: #0f0f13;
+      color: #ff6f3c;
+    }
+    body.neon-theme header {
+      background: #1a1a1f;
+      color: #ff6f3c;
+      box-shadow: 0 0 15px #ff6f3c;
+    }
+    body.neon-theme header h1, 
+    body.neon-theme header p {
+      text-shadow:
+        0 0 5px #ff6f3c,
+        0 0 10px #ff6f3c,
+        0 0 20px #ff6f3c;
+    }
+    body.neon-theme main {
+      background: #121217;
+      color: #ff6f3c;
+      box-shadow: 0 0 20px #3ce0d0;
+    }
+    body.neon-theme h2 {
+      color: #3ce0d0;
+      text-shadow: 0 0 8px #3ce0d0;
+    }
+    body.neon-theme .back-link a {
+      color: #3ce0d0;
+      text-shadow: 0 0 5px #3ce0d0;
+    }
+    body.neon-theme .back-link a:hover {
+      text-decoration: underline;
+    }
+    body.neon-theme .footer {
+      color: #555;
+      text-shadow: 0 0 5px #3ce0d0;
+    }
+
+    /* Neon toggle button */
+    #neonToggle {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: #121217;
+      border: 2px solid #ff6f3c;
+      border-radius: 20px;
+      width: 50px;
+      height: 25px;
+      cursor: pointer;
+      box-shadow:
+        0 0 5px #ff6f3c,
+        inset 0 0 5px #ff6f3c;
+      transition: background 0.3s ease, border-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      padding: 0 5px;
+    }
+    #neonToggle .toggle-thumb {
+      background: #ff6f3c;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      box-shadow:
+        0 0 8px #ff6f3c;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    body.neon-theme #neonToggle {
+      background: #0f0f13;
+      border-color: #3ce0d0;
+      box-shadow:
+        0 0 8px #3ce0d0,
+        inset 0 0 8px #3ce0d0;
+    }
+    body.neon-theme #neonToggle .toggle-thumb {
+      background: #3ce0d0;
+      box-shadow:
+        0 0 12px #3ce0d0;
+      transform: translateX(25px);
     }
   </style>
 </head>
@@ -128,6 +205,23 @@
   <div class="footer">
     &copy; 2025 Genesys-HUB. Built for the Genesys Hackathon.
   </div>
+
+  <div id="neonToggle" aria-label="Toggle Neon Theme" role="button" tabindex="0" title="Toggle Neon Theme">
+    <div class="toggle-thumb"></div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('neonToggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('neon-theme');
+    });
+    toggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        document.body.classList.toggle('neon-theme');
+      }
+    });
+  </script>
 
 </body>
 </html>

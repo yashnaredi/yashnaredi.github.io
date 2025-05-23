@@ -20,6 +20,8 @@
       line-height: 1.6;
       min-height: 100vh;
       padding-bottom: 60px;
+      transition: background-color 0.5s ease, color 0.5s ease;
+      position: relative;
     }
 
     header {
@@ -28,6 +30,7 @@
       box-shadow: inset 0 -10px 15px rgba(0,0,0,0.4);
       border-bottom: 5px solid #7a9a4d;
       position: relative;
+      z-index: 10;
     }
 
     header h1 {
@@ -64,6 +67,12 @@
       color: #f0f5b7;
     }
 
+    nav a[aria-current="page"] {
+      background-color: #7a9a4d;
+      color: #f0f5b7;
+      pointer-events: none;
+    }
+
     main {
       max-width: 900px;
       margin: 2rem auto;
@@ -72,6 +81,9 @@
       padding: 2rem 2.5rem;
       box-shadow: 0 0 20px #a7c17a88;
       border: 3px solid #7a9a4d;
+      transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+      position: relative;
+      z-index: 5;
     }
 
     h2, h3 {
@@ -145,6 +157,8 @@
       font-size: 0.9rem;
       font-style: italic;
       user-select: none;
+      position: relative;
+      z-index: 10;
     }
 
     @media (max-width: 600px) {
@@ -164,6 +178,179 @@
         font-size: 0.85rem;
       }
     }
+
+    /* --- NEON MODE STYLES with green/yellow neon --- */
+    body.neon {
+      background: linear-gradient(135deg, #0a1e0a 0%, #2a3e1a 100%);
+      color: #d0ff60;
+    }
+
+    body.neon header {
+      background: #113311;
+      border-bottom-color: #a7ff00;
+      box-shadow: 0 0 15px #a7ff00 inset;
+    }
+
+    body.neon header h1 {
+      color: #a7ff00;
+      text-shadow:
+        0 0 6px #a7ff00,
+        0 0 15px #d0ff60,
+        0 0 30px #a7ff00;
+    }
+
+    body.neon nav a {
+      color: #a7ff00;
+      border-color: #a7ff00;
+      box-shadow: 0 0 5px #a7ff00 inset;
+    }
+
+    body.neon nav a:hover,
+    body.neon nav a:focus {
+      background-color: #d0ff60;
+      color: #0a1e0a;
+      box-shadow:
+        0 0 12px #d0ff60,
+        0 0 24px #a7ff00;
+    }
+
+    body.neon nav a[aria-current="page"] {
+      background-color: #a7ff00;
+      color: #0a1e0a;
+      pointer-events: none;
+      box-shadow:
+        0 0 20px #a7ff00,
+        0 0 40px #d0ff60;
+    }
+
+    body.neon main {
+      background: rgba(22, 44, 14, 0.85);
+      border-color: #a7ff00;
+      box-shadow:
+        0 0 25px #d0ff60,
+        inset 0 0 40px #a7ff00;
+    }
+
+    body.neon h2, body.neon h3 {
+      color: #a7ff00;
+      text-shadow:
+        0 0 6px #a7ff00,
+        0 0 15px #d0ff60;
+    }
+
+    body.neon p, body.neon li {
+      color: #e4f7a9;
+    }
+
+    body.neon .note-box {
+      background: #304d06cc;
+      border-left-color: #a7ff00;
+      color: #d0ff60;
+      box-shadow: 0 2px 5px #294501a1;
+    }
+
+    body.neon a {
+      color: #d0ff60;
+      border-bottom-color: #d0ff60;
+    }
+
+    body.neon a:hover {
+      color: #a7ff00;
+      border-bottom-color: #a7ff00;
+    }
+
+    body.neon footer {
+      color: #a7ff0077;
+    }
+
+    /* Neon toggle switch container */
+    .neon-toggle-container {
+      position: fixed;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
+      background: rgba(41, 56, 28, 0.85);
+      border: 2px solid #7a9a4d;
+      border-radius: 25px;
+      padding: 0.3rem 0.6rem;
+      box-shadow: 0 0 10px #a7c17a88;
+      z-index: 1000;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .neon-toggle-container:hover {
+      background: #7a9a4d;
+      border-color: #a7ff00;
+      box-shadow: 0 0 15px #a7ff00;
+    }
+
+    .neon-toggle-container label {
+      font-family: 'Roboto', sans-serif;
+      font-weight: bold;
+      color: #c9d59f;
+      margin-right: 0.5rem;
+      user-select: none;
+      font-size: 0.85rem;
+      text-shadow: 1px 1px 1px #1b2414;
+    }
+
+    body.neon .neon-toggle-container label {
+      color: #a7ff00;
+      text-shadow:
+        0 0 6px #a7ff00,
+        0 0 10px #d0ff60;
+    }
+
+    /* Toggle Switch */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #a7ff00;
+      box-shadow: 0 0 8px #a7ff00;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
   </style>
 </head>
 <body>
@@ -176,8 +363,7 @@
     <a href="dino-part-b.html">Part B Digital Flow</a>
   </nav>
 </header>
-<a href="index.html" class="back-link" aria-label="Back to Genesys Hub">&larr; Back to Genesys Hub</a>
-
+<a href="index.html" class="back-link" aria-label="Back to Genesys Hub" style="margin-left: 2rem; display: inline-block; margin-top: 1rem; color: #c9d59f; text-decoration: none;">&larr; Back to Genesys Hub</a>
 <main>
   <section>
     <h2>Welcome to Dino Park Training</h2>
@@ -201,6 +387,48 @@
 <footer>
   &copy; 2025 Genesys HUB | Jurassic Training Grounds
 </footer>
+
+<!-- Neon toggle switch -->
+<div class="neon-toggle-container" aria-label="Toggle neon mode" role="switch" tabindex="0">
+  <label for="neon-toggle">Neon Mode</label>
+  <label class="switch">
+    <input type="checkbox" id="neon-toggle" aria-checked="false" />
+    <span class="slider"></span>
+  </label>
+</div>
+
+<script>
+  const toggle = document.getElementById('neon-toggle');
+  const neonContainer = document.querySelector('.neon-toggle-container');
+
+  // Load preference from localStorage
+  if (localStorage.getItem('neonMode') === 'true') {
+    document.body.classList.add('neon');
+    toggle.checked = true;
+    toggle.setAttribute('aria-checked', 'true');
+  }
+
+  toggle.addEventListener('change', () => {
+    if (toggle.checked) {
+      document.body.classList.add('neon');
+      toggle.setAttribute('aria-checked', 'true');
+      localStorage.setItem('neonMode', 'true');
+    } else {
+      document.body.classList.remove('neon');
+      toggle.setAttribute('aria-checked', 'false');
+      localStorage.setItem('neonMode', 'false');
+    }
+  });
+
+  // Keyboard accessibility for container toggle
+  neonContainer.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggle.checked = !toggle.checked;
+      toggle.dispatchEvent(new Event('change'));
+    }
+  });
+</script>
 
 </body>
 </html>

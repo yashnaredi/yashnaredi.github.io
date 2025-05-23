@@ -69,6 +69,64 @@
       color: #777;
     }
 
+    /* Neon theme styles */
+    body.neon-theme {
+      background: #0f0f13;
+      color: #ff6f3c;
+    }
+
+    body.neon-theme header {
+      background: #1a1a1f;
+      color: #ff6f3c;
+      box-shadow: 0 0 15px #ff6f3c;
+    }
+
+    body.neon-theme header h1, body.neon-theme header p {
+      text-shadow: 0 0 5px #ff6f3c, 0 0 10px #ff6f3c, 0 0 20px #ff6f3c;
+    }
+
+    body.neon-theme .card {
+      background: #121217;
+      color: #3ce0d0;
+      box-shadow: 0 0 10px #3ce0d0;
+    }
+
+    body.neon-theme .card a {
+      color: #3ce0d0;
+      text-shadow: 0 0 5px #3ce0d0;
+    }
+
+    body.neon-theme .card:hover {
+      box-shadow: 0 0 20px #3ce0d0;
+    }
+
+    body.neon-theme .footer {
+      color: #555;
+      text-shadow: 0 0 10px #3ce0d0;
+    }
+
+    #themeToggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #1a1a1f;
+      border: 2px solid #ff6f3c;
+      color: #ff6f3c;
+      padding: 10px 20px;
+      font-weight: bold;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      cursor: pointer;
+      border-radius: 30px;
+      box-shadow: 0 0 10px #ff6f3c, inset 0 0 8px #ff6f3c;
+      transition: background 0.3s ease, color 0.3s ease;
+      z-index: 9999;
+    }
+
+    #themeToggle:hover {
+      background: #ff6f3c;
+      color: #1a1a1f;
+      box-shadow: 0 0 20px #ff6f3c, inset 0 0 15px #ff6f3c;
+    }
   </style>
 </head>
 <body>
@@ -78,11 +136,13 @@
     <p>Your central hub for onboarding, learning, and accelerating solution delivery in Genesys Digital & AI Suite</p>
   </header>
 
+  <button id="themeToggle" aria-label="Toggle Neon Theme">Enable Neon Theme</button>
+
   <div class="container">
     <div class="card">
       <h3>SWAT Training Archive</h3>
       <p>Watch past training sessions and master the Genesys platform fundamentals.</p>
-      <a href="https://genesyslab.sharepoint.com/sites/PS/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FPS%2FShared%20Documents%2FGenesys%20Cloud%20Practice%20Trainings%2FAI%20SWAT%20Trainings%20and%20Labs&viewid=9ff393f8%2Ddec8%2D4556%2D88fe%2Daf50a2daf7fc&p=true&ga=1" target="_blank">Access Training</a>
+      <a href="https://genesyslab.sharepoint.com" target="_blank">Access Training</a>
     </div>
     <div class="card">
       <h3>Boilerplate Code Library</h3>
@@ -99,14 +159,19 @@
       <p>Collection of different Guides to get you started.</p>
       <a href="config-landing.html" target="_blank">Explore Guides</a>
     </div>
-    
-    
   </div>
 
   <div class="footer">
     &copy; 2025 Genesys-HUB. Built for the Genesys Hackathon.
   </div>
 
+  <script>
+    const toggleBtn = document.getElementById('themeToggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('neon-theme');
+      toggleBtn.textContent = document.body.classList.contains('neon-theme') ? 'Disable Neon Theme' : 'Enable Neon Theme';
+    });
+  </script>
+
 </body>
 </html>
-

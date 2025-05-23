@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dino Park Training - Part A Setup</title>
   <style>
-    /* Use the same styles as dino-park.html for consistency */
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&display=swap');
 
+    /* Reuse all styles from landing page, just update active nav */
+
+    /* Reset */
     * {
       box-sizing: border-box;
     }
@@ -20,6 +22,8 @@
       line-height: 1.6;
       min-height: 100vh;
       padding-bottom: 60px;
+      transition: background-color 0.5s ease, color 0.5s ease;
+      position: relative;
     }
 
     header {
@@ -28,6 +32,7 @@
       box-shadow: inset 0 -10px 15px rgba(0,0,0,0.4);
       border-bottom: 5px solid #7a9a4d;
       position: relative;
+      z-index: 10;
     }
 
     header h1 {
@@ -40,6 +45,7 @@
       vertical-align: middle;
     }
 
+    /* Navigation Bar */
     nav {
       display: inline-block;
       vertical-align: middle;
@@ -67,7 +73,6 @@
       background-color: #7a9a4d;
       color: #f0f5b7;
       pointer-events: none;
-      cursor: default;
     }
 
     main {
@@ -78,6 +83,9 @@
       padding: 2rem 2.5rem;
       box-shadow: 0 0 20px #a7c17a88;
       border: 3px solid #7a9a4d;
+      transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+      position: relative;
+      z-index: 5;
     }
 
     h2, h3 {
@@ -144,24 +152,6 @@
       border-bottom: 2px solid #f0f5b7;
     }
 
-    /* Back Button */
-    .back-link {
-      display: inline-block;
-      margin-bottom: 1rem;
-      color: #c9d59f;
-      font-weight: bold;
-      text-decoration: none;
-      border: 2px solid #7a9a4d;
-      padding: 0.4rem 0.8rem;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
-    }
-
-    .back-link:hover {
-      background-color: #7a9a4d;
-      color: #f0f5b7;
-    }
-
     footer {
       text-align: center;
       margin-top: 3rem;
@@ -169,6 +159,8 @@
       font-size: 0.9rem;
       font-style: italic;
       user-select: none;
+      position: relative;
+      z-index: 10;
     }
 
     @media (max-width: 600px) {
@@ -188,6 +180,179 @@
         font-size: 0.85rem;
       }
     }
+
+    /* --- NEON MODE STYLES with green/yellow neon --- */
+    body.neon {
+      background: linear-gradient(135deg, #0a1e0a 0%, #2a3e1a 100%);
+      color: #d0ff60;
+    }
+
+    body.neon header {
+      background: #113311;
+      border-bottom-color: #a7ff00;
+      box-shadow: 0 0 15px #a7ff00 inset;
+    }
+
+    body.neon header h1 {
+      color: #a7ff00;
+      text-shadow:
+        0 0 6px #a7ff00,
+        0 0 15px #d0ff60,
+        0 0 30px #a7ff00;
+    }
+
+    body.neon nav a {
+      color: #a7ff00;
+      border-color: #a7ff00;
+      box-shadow: 0 0 5px #a7ff00 inset;
+    }
+
+    body.neon nav a:hover,
+    body.neon nav a:focus {
+      background-color: #d0ff60;
+      color: #0a1e0a;
+      box-shadow:
+        0 0 12px #d0ff60,
+        0 0 24px #a7ff00;
+    }
+
+    body.neon nav a[aria-current="page"] {
+      background-color: #a7ff00;
+      color: #0a1e0a;
+      pointer-events: none;
+      box-shadow:
+        0 0 20px #a7ff00,
+        0 0 40px #d0ff60;
+    }
+
+    body.neon main {
+      background: rgba(22, 44, 14, 0.85);
+      border-color: #a7ff00;
+      box-shadow:
+        0 0 25px #d0ff60,
+        inset 0 0 40px #a7ff00;
+    }
+
+    body.neon h2, body.neon h3 {
+      color: #a7ff00;
+      text-shadow:
+        0 0 6px #a7ff00,
+        0 0 15px #d0ff60;
+    }
+
+    body.neon p, body.neon li {
+      color: #e4f7a9;
+    }
+
+    body.neon .note-box {
+      background: #304d06cc;
+      border-left-color: #a7ff00;
+      color: #d0ff60;
+      box-shadow: 0 2px 5px #294501a1;
+    }
+
+    body.neon a {
+      color: #d0ff60;
+      border-bottom-color: #d0ff60;
+    }
+
+    body.neon a:hover {
+      color: #a7ff00;
+      border-bottom-color: #a7ff00;
+    }
+
+    body.neon footer {
+      color: #a7ff0077;
+    }
+
+    /* Neon toggle switch container */
+    .neon-toggle-container {
+      position: fixed;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
+      background: rgba(41, 56, 28, 0.85);
+      border: 2px solid #7a9a4d;
+      border-radius: 25px;
+      padding: 0.3rem 0.6rem;
+      box-shadow: 0 0 10px #a7c17a88;
+      z-index: 1000;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .neon-toggle-container:hover {
+      background: #7a9a4d;
+      border-color: #a7ff00;
+      box-shadow: 0 0 15px #a7ff00;
+    }
+
+    .neon-toggle-container label {
+      font-family: 'Roboto', sans-serif;
+      font-weight: bold;
+      color: #c9d59f;
+      margin-right: 0.5rem;
+      user-select: none;
+      font-size: 0.85rem;
+      text-shadow: 1px 1px 1px #1b2414;
+    }
+
+    body.neon .neon-toggle-container label {
+      color: #a7ff00;
+      text-shadow:
+        0 0 6px #a7ff00,
+        0 0 10px #d0ff60;
+    }
+
+    /* Toggle Switch */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #a7ff00;
+      box-shadow: 0 0 8px #a7ff00;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
   </style>
 </head>
 <body>
@@ -200,71 +365,88 @@
     <a href="dino-part-b.html">Part B Digital Flow</a>
   </nav>
 </header>
-
+<a href="index.html" class="back-link" aria-label="Back to Genesys Hub" style="margin-left: 2rem; display: inline-block; margin-top: 1rem; color: #c9d59f; text-decoration: none;">&larr; Back to Genesys Hub</a>
 <main>
-  <a href="dino-park.html" class="back-link" aria-label="Back to Dino Park Home">&larr; Back to Home</a>
-  <a href="index.html" class="back-link" aria-label="Back to Genesys Hub">&larr; Back to Genesys Hub</a>
-
   <section>
     <h2>Part A: Setup & Configuration</h2>
-    <p><strong>Prerequisite:</strong> Set up access to <a href="https://genpstest.genesyscloud.com" target="_blank" rel="noopener noreferrer">GenPSTest environment</a> for this task.</p>
-    <p><strong>Objective:</strong> Dino Park is a website where users get answers from agents about support, sales, and science. Your task is to configure inbound flows for these 3 lines of business (LOB):</p>
-    <ul>
-      <li>Science</li>
-      <li>Sales</li>
-      <li>Support</li>
-    </ul>
-    <p><strong>Communication Channels:</strong></p>
-    <ul>
-      <li>Web Messaging</li>
-      <li>Email</li>
-      <li>Chat (Facebook/X)</li>
-    </ul>
-    <p>Trainees are expected to configure queues and schedule groups for each LOB.</p>
+    <p>This section covers how to create and configure queues, schedules, and channels for the Dino Park multi-channel contact center.</p>
+  </section>
 
-    <h3>Hours of Operation</h3>
+  <section>
+    <h3>Queues</h3>
     <ul>
-      <li><strong>Science:</strong> 10am – 2pm</li>
-      <li><strong>Sales:</strong> 8am – 5pm</li>
-      <li><strong>Support:</strong> 24/7</li>
+      <li>Configure Science, Sales, and Support queues</li>
+      <li>Set priorities for queue routing</li>
+      <li>Associate queues with lines of business</li>
     </ul>
+  </section>
 
-    <div class="note-box">
-      <strong>Special Case: Science Queue</strong><br />
-      Display estimated wait time for chats using the existing Data Action <em>"Get Estimated Wait Time"</em>. Show wait time in 5-minute intervals (e.g., "Your estimated wait time is between 5 to 10 minutes"). Convert output from seconds to minutes.
-    </div>
-
-    <h3>Web Messenger Configuration & Deployment</h3>
+  <section>
+    <h3>Schedules</h3>
     <ul>
-      <li>Customize widget colors, logo, and bot persona to match Dino Park branding.</li>
-      <li>Note: Knowledge portal configuration is <em>not</em> required for this exercise.</li>
-      <li>Deploy widget with provided code snippet.</li>
-      <li>Test on Dino Park website using Tamper Monkey (Chrome extension).</li>
+      <li>Define business hours per queue</li>
+      <li>Configure holidays and exceptions</li>
+      <li>Link schedules to queues for routing control</li>
     </ul>
+  </section>
 
-    <h3>Testing Web Messenger Routing</h3>
+  <section>
+    <h3>Channels</h3>
     <ul>
-      <li>Use database.set to pass keys (<code>science</code>, <code>sales</code>, <code>support</code>) for routing.</li>
-      <li>Handle off-hours chats by routing to fallback queue or Support queue.</li>
+      <li>Enable Web Messaging, Email, and Chat channels</li>
+      <li>Set channel-specific routing rules</li>
+      <li>Integrate with external systems as needed</li>
     </ul>
+  </section>
 
-    <h3>Email Configuration</h3>
-    <ul>
-      <li>Configure domains/subdomains for each LOB to receive emails.</li>
-      <li>Set up LOB-specific auto-responses.</li>
-    </ul>
-
-    <h3>Chat (Facebook/X) Setup</h3>
-    <ul>
-      <li>Configure channel via existing API integration.</li>
-      <li>Connect inbound message flow to handle chats.</li>
-    </ul>
+  <section class="note-box">
+    <p><strong>Note:</strong> For detailed instructions, refer to the <a href="https://genesys.com/docs" target="_blank" rel="noopener noreferrer">Genesys documentation</a>.</p>
   </section>
 </main>
 
 <footer>
   &copy; 2025 Genesys HUB | Jurassic Training Grounds
 </footer>
+
+<!-- Neon toggle switch -->
+<div class="neon-toggle-container" aria-label="Toggle neon mode" role="switch" tabindex="0">
+  <label for="neon-toggle">Neon Mode</label>
+  <label class="switch">
+    <input type="checkbox" id="neon-toggle" aria-checked="false" />
+    <span class="slider"></span>
+  </label>
+</div>
+
+<script>
+  const toggle = document.getElementById('neon-toggle');
+  const neonContainer = document.querySelector('.neon-toggle-container');
+
+  if (localStorage.getItem('neonMode') === 'true') {
+    document.body.classList.add('neon');
+    toggle.checked = true;
+    toggle.setAttribute('aria-checked', 'true');
+  }
+
+  toggle.addEventListener('change', () => {
+    if (toggle.checked) {
+      document.body.classList.add('neon');
+      toggle.setAttribute('aria-checked', 'true');
+      localStorage.setItem('neonMode', 'true');
+    } else {
+      document.body.classList.remove('neon');
+      toggle.setAttribute('aria-checked', 'false');
+      localStorage.setItem('neonMode', 'false');
+    }
+  });
+
+  neonContainer.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggle.checked = !toggle.checked;
+      toggle.dispatchEvent(new Event('change'));
+    }
+  });
+</script>
 
 </body>
 </html>

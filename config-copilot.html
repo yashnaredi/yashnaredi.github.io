@@ -69,6 +69,24 @@
     a:hover {
       text-decoration: underline;
     }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #FF4F1F;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+
+    .theme-toggle.neon {
+      background: #39FF14;
+      color: #000;
+    }
   </style>
 </head>
 <body>
@@ -76,6 +94,8 @@
   <header>
     <h1>How to Set Up Copilot</h1>
   </header>
+
+  <button id="themeToggle" class="theme-toggle">Switch to Neon Theme</button>
 
   <main>
     <h2>Prerequisites</h2>
@@ -122,6 +142,25 @@
   <div class="footer">
     &copy; 2025 Genesys-HUB. Built for the Genesys Hackathon.
   </div>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('neon-theme');
+      if (document.body.classList.contains('neon-theme')) {
+        document.body.style.background = '#000';
+        document.body.style.color = '#39FF14';
+        themeToggle.textContent = 'Switch to Default Theme';
+        themeToggle.classList.add('neon');
+      } else {
+        document.body.style.background = '#f4f6f9';
+        document.body.style.color = '#333';
+        themeToggle.textContent = 'Switch to Neon Theme';
+        themeToggle.classList.remove('neon');
+      }
+    });
+  </script>
 
 </body>
 </html>

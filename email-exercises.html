@@ -10,12 +10,14 @@
       margin: 0; padding: 0;
       background: #f4f6f9;
       color: #333;
+      transition: background 0.3s ease, color 0.3s ease;
     }
     header {
       background: #FF4F1F;
       color: white;
       padding: 40px 20px;
       text-align: center;
+      transition: background 0.3s ease, color 0.3s ease;
     }
     header h1 {
       margin: 0;
@@ -34,7 +36,7 @@
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       padding: 25px;
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
     }
     .card:hover {
       transform: translateY(-5px);
@@ -43,10 +45,12 @@
     .card h3 {
       margin-top: 0;
       color: #FF4F1F;
+      transition: color 0.3s ease;
     }
     .card ul {
       padding-left: 20px;
       color: #555;
+      transition: color 0.3s ease;
     }
     .card a {
       display: inline-block;
@@ -55,12 +59,17 @@
       font-weight: bold;
       text-decoration: none;
       font-size: 1.1em;
+      transition: color 0.3s ease;
+    }
+    .card a:hover {
+      text-decoration: underline;
     }
     .footer {
       text-align: center;
       padding: 30px;
       font-size: 0.9em;
       color: #777;
+      transition: color 0.3s ease;
     }
     .back-link {
       max-width: 1100px;
@@ -72,9 +81,98 @@
       font-weight: bold;
       text-decoration: none;
       font-size: 1.1em;
+      transition: color 0.3s ease;
     }
     .back-link a:hover {
       text-decoration: underline;
+    }
+
+    /* Neon dark theme */
+    body.neon-theme {
+      background: #0f0f13;
+      color: #ff6f3c;
+    }
+    body.neon-theme header {
+      background: #1a1a1f;
+      color: #ff6f3c;
+      box-shadow: 0 0 15px #ff6f3c;
+    }
+    body.neon-theme header h1, 
+    body.neon-theme header p {
+      text-shadow:
+        0 0 5px #ff6f3c,
+        0 0 10px #ff6f3c,
+        0 0 20px #ff6f3c;
+    }
+    body.neon-theme .container {
+      /* no bg */
+    }
+    body.neon-theme .card {
+      background: #121217;
+      color: #ff6f3c;
+      box-shadow: 0 0 20px #3ce0d0;
+    }
+    body.neon-theme .card h3 {
+      color: #3ce0d0;
+      text-shadow: 0 0 8px #3ce0d0;
+    }
+    body.neon-theme .card ul {
+      color: #ff9c70;
+    }
+    body.neon-theme .card a {
+      color: #3ce0d0;
+      text-shadow: 0 0 5px #3ce0d0;
+    }
+    body.neon-theme .back-link a {
+      color: #3ce0d0;
+      text-shadow: 0 0 5px #3ce0d0;
+    }
+    body.neon-theme .footer {
+      color: #555;
+      text-shadow: 0 0 5px #3ce0d0;
+    }
+
+    /* Neon toggle button */
+    #neonToggle {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: #121217;
+      border: 2px solid #ff6f3c;
+      border-radius: 20px;
+      width: 50px;
+      height: 25px;
+      cursor: pointer;
+      box-shadow:
+        0 0 5px #ff6f3c,
+        inset 0 0 5px #ff6f3c;
+      transition: background 0.3s ease, border-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      padding: 0 5px;
+      z-index: 1000;
+    }
+    #neonToggle .toggle-thumb {
+      background: #ff6f3c;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      box-shadow:
+        0 0 8px #ff6f3c;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    body.neon-theme #neonToggle {
+      background: #0f0f13;
+      border-color: #3ce0d0;
+      box-shadow:
+        0 0 8px #3ce0d0,
+        inset 0 0 8px #3ce0d0;
+    }
+    body.neon-theme #neonToggle .toggle-thumb {
+      background: #3ce0d0;
+      box-shadow:
+        0 0 12px #3ce0d0;
+      transform: translateX(25px);
     }
   </style>
 </head>
@@ -112,7 +210,6 @@
       </ul>
       <a href="ex-email-3.html">Start Exercise 3</a>
     </div>
-   
   </div>
 
   <div class="back-link">
@@ -122,6 +219,23 @@
   <div class="footer">
     &copy; 2025 Genesys-HUB. Built for the Genesys Hackathon.
   </div>
+
+  <div id="neonToggle" aria-label="Toggle Neon Theme" role="button" tabindex="0" title="Toggle Neon Theme">
+    <div class="toggle-thumb"></div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('neonToggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('neon-theme');
+    });
+    toggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        document.body.classList.toggle('neon-theme');
+      }
+    });
+  </script>
 
 </body>
 </html>
